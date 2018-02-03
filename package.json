@@ -1,0 +1,20 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel client-src -d client --source-maps"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-module-resolver": "^3.0.0",
+    "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1"
+  },
+  "dependencies": {
+    "systemjs": "^0.20.19"
+  }
+}

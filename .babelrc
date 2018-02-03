@@ -1,0 +1,13 @@
+{
+    "plugins": [
+        "transform-es2015-modules-systemjs",
+        ["module-resolver", {
+            "root": ["./client"],
+            "alias": {
+              "view": "./gen_view",
+              "socketController": "./ws_sockets/controllers"
+            }
+          }
+        ]
+    ]
+}

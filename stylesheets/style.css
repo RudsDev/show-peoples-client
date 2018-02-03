@@ -1,0 +1,101 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 0.5px;
+  background: pink;
+  height: 2px;
+  border-color: hotpink;
+}
+
+h3.show-error{
+  background: #f86363;;
+  border: 2px solid red; 
+  color: black;
+}
+
+h3.show-info{
+  background: #74ff74;
+  border: 2px solid #009c0d;
+  color: #009c0d;
+}
+
+h3.show-warn{
+  background: #ffd4a6;
+  border: 2px solid orangered;
+  color: orangered;
+}
+
+h3.show-message{
+  text-align: center;
+  font-size: 12pt;
+  border-radius: 5px;
+  height: 21px;
+}
+
+#show-peoples{
+  display: inline-block;
+}
+
+div.picture{
+  position: relative;
+  height: 80px;
+  width: 90px;
+  float: left;
+  top: 12px;
+}
+
+.poeple-card {
+  float: left;
+  padding: 7px;
+  margin: 8px 5px 8px 5px;
+  width: 285px;
+  height: 125px;
+  border: solid 1px lightgray;
+}
+
+.div-data-people{
+  float: left;
+  position: relative;
+  top: 14px;
+}
+
+.div-data-people div{
+  margin-bottom: 2px; 
+}
+
+.invisible{
+  display: none;
+}
+
+.poeple-card div.options{
+  clear: both;
+  text-align: center;
+  position: relative;
+  top: 16px;
+}
+
+p.close-card{
+  margin: 0px;
+  float: right;
+  font-weight: 700;
+  color: red;
+  opacity: 0.2;
+}
+
+p.close-card:hover{
+  opacity: 1;
+  font-weight: 800px;
+}
