@@ -99,3 +99,7 @@ p.close-card:hover{
   opacity: 1;
   font-weight: 800px;
 }
+
+#filter-nat{
+  width: 170px;
+}
