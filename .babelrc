@@ -4,7 +4,8 @@
         ["module-resolver", {
             "root": ["./client"],
             "alias": {
-              "view": "./gen_view",
+              "view": "./views",
+              "controller": "./controller",
               "socketController": "./ws_sockets/controllers"
             }
           }
