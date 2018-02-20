@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Title Page</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="./stylesheets/bootstrao4/bootstrap.min.css" rel="stylesheet">
+        <!-- My CSS -->
+        <link href="./stylesheets/style.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <h1 class="text-center">Hello People!</h1>
+
+        <hr></hr>
+
+        <div id="div-filters">
+
+            <div id="filter-nat" class="input-group mb-3 filter-item">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="filter-nat-input">Nationality</label>
+                </div>
+                <select class="custom-select" id="filter-nat-input">
+                  <option selected>NAT</option>
+                  <option value="br">BR</option>
+                  <option value="nz">NZ</option>
+                  <option value="en">EN</option>
+                </select>
+              </div>    
+
+              <div id="filter-qtd" class="input-group mb-3 filter-item">
+                <label for="filter-qtd-input" class="input-group-text">Quantity</label>
+                <div class="col-1">
+                  <input class="form-control" type="number" value="10" id="filter-qtd-input">
+                </div>
+              </div>
+
+              <button type="button" id="btn-go" class="btn btn-primary">Go!</button>
+
+        </div>
+
+        <div id="show-peoples" class="">
+
+        </div>
+
+    </body>
+
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./stylesheets/bootstrao4/bootstrap.min.js"></script>
+    <script src="./node_modules/systemjs/dist/system.js"></script>
+
+    <script>
+        SystemJS.import('./client/app.js').catch(err=>console.log(err));
+    </script>
+
+</html>

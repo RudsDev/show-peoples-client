@@ -1,4 +1,7 @@
-import { peopleController } from "/controller/PeopleController.js";
+import { peopleController } from "./controller/PeopleController.js";
 
+const btnGo = document.querySelector('#btn-go');
 
-console.log(peopleController);
+btnGo.addEventListener('click', event=>{
+    peopleController.fetchPeople();
+});
