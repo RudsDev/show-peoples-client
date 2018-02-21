@@ -63,26 +63,30 @@ div.picture{
   height: 80px;
   width: 90px;
   float: left;
-  top: 12px;
+  top: 6px;
 }
 
 .poeple-card {
   float: left;
   padding: 7px;
   margin: 8px 5px 8px 5px;
-  width: 285px;
-  height: 125px;
+  width: 300px;
+  height: 150px;
   border: solid 1px lightgray;
 }
 
 .div-data-people{
   float: left;
   position: relative;
-  top: 14px;
+  top: 4px;
+  width: 190px;
 }
 
 .div-data-people div{
-  margin-bottom: 2px; 
+  margin-bottom: 2px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .invisible{
@@ -93,7 +97,7 @@ div.picture{
   clear: both;
   text-align: center;
   position: relative;
-  top: 16px;
+  bottom: 5px;
 }
 
 p.close-card{
@@ -145,4 +149,20 @@ p.close-card:hover{
   float: right;
   position: relative;
   bottom: 54px;
+}
+
+h4.name{
+  margin-bottom: 0px;
+  width: 260px;
+  font-size: 14pt;
+  float: left;
+  font-weight: 600;
+}
+
+img.thumbnail{
+  left: 8px;
+}
+
+div.div-data-people span.data-label{
+  font-weight: 600;
 }
