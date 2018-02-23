@@ -51,7 +51,7 @@ div#div-filters {
   border: 1px solid lightgray;
   border-radius: 4px;
   background: #f8f9fa;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 #show-peoples{
@@ -165,4 +165,18 @@ img.thumbnail{
 
 div.div-data-people span.data-label{
   font-weight: 600;
+}
+
+div#counter-peoples{
+  border: 3px solid lightgray;
+  padding: 5px 0px 5px 5px;
+  border-radius: 3px;
+  display: inline-block;
+  background: #ff69b48a;
+  font-size: medium;
+}
+
+span#span-counter{
+  background: lightgray;
+  padding: 7px;
 }

@@ -12,14 +12,37 @@ class PeopleController{
     constructor(){
         this._qtd = document.querySelector('#filter-qtd-input');
         this._nat = document.querySelector('#filter-nat-input');
+        this._counter = document.querySelector('#span-counter');
     }
 
     fetchPeople(){
-        let uri = `${RESOURCE_URL}/${this._nat.value}/${this._qtd.value}`;
-        let data = Fetcher.conect(uri,'GET',null,'text/plain')[2];
-        let arrayData = JSON.parse(data);
-        arrayData.map(item=>peopleView.update(item));
+        return new Promise((resolve, reject)=>{
+
+            try{
+                let uri = `${RESOURCE_URL}/${this._nat.value}/${this._qtd.value}`;
+                let data = Fetcher.conect(uri,'GET',null,'text/plain')[2];
+                peopleView.update(JSON.parse(data));
+                this._updateCounter();
+                return resolve();
+            }
+            catch(error) {
+                console.log(error)
+                return reject(error);
+            }
+        });
     }
+
+
+    removePeople(element){
+        element.parentNode.remove(element);
+        this._updateCounter();
+    }
+
+
+    _updateCounter(){
+        this._counter.textContent = document.querySelectorAll('.poeple-card').length;
+    }
+
 
 }
 
