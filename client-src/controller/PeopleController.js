@@ -17,7 +17,6 @@ class PeopleController{
 
     fetchPeople(){
         return new Promise((resolve, reject)=>{
-
             try{
                 let uri = `${RESOURCE_URL}/${this._nat.value}/${this._qtd.value}`;
                 let data = Fetcher.conect(uri,'GET',null,'text/plain')[2];
@@ -32,17 +31,14 @@ class PeopleController{
         });
     }
 
-
     removePeople(element){
-        element.parentNode.remove(element);
+        peopleView.removePeople(element);
         this._updateCounter();
     }
-
 
     _updateCounter(){
         this._counter.textContent = document.querySelectorAll('.poeple-card').length;
     }
-
 
 }
 

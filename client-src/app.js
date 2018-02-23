@@ -1,7 +1,8 @@
 import { peopleController } from "./controller/PeopleController.js";
+import { initCardEvents } from "./scripts/initEvents.js";
 
 const btnGo = document.querySelector('#btn-go');
 
 btnGo.addEventListener('click', event=>{
-    peopleController.fetchPeople().then(initEvents());
+    peopleController.fetchPeople().then(initCardEvents(peopleController));
 });

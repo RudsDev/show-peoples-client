@@ -6,7 +6,6 @@ export class PeopleView{
 
     update(models){
         this._element.innerHTML += this._template(models);
-        this._makeClosable();
     }
 
     _template(models){
@@ -17,10 +16,10 @@ export class PeopleView{
             let age = new Date().getFullYear() 
             - new Date(Date.parse(model._dateOfBirthy)).getFullYear();
             html += `
-                <div class="poeple-card unclosable">
+                <div class="poeple-card">
                 <h4 class="card-title name">${model._name._first}</h4>
                 <button type="button" class="close close-card" aria-label="Close">
-                    <span class="btn-close-card" aria-hidden="true">&times;</span>
+                    <span class="btn-close-card  unclosable" aria-hidden="true">&times;</span>
                 </button>
                     <div class="picture">
                         <img src="${model._picture._medium}" 
@@ -43,20 +42,8 @@ export class PeopleView{
         return html;
     }
 
-    _makeClosable(){
-
-        console.log('_makeClosable');
-
-        let unclosables = document.querySelectorAll('span.btn-close-card');
-
-        unclosables.forEach(item=>{
-            item.addEventListener('click', event=>{
-
-                let element = event.target.parentNode.parentNode;
-                // peopleController.removePeople(event.target.parentNode);
-                console.log(element);
-            });
-        });
+    removePeople(element){
+        element.remove();
     }
 
 }
