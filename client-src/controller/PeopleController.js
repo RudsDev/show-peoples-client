@@ -42,4 +42,16 @@ class PeopleController{
 
 }
 
-export const peopleController = new PeopleController();
+let proxy = new Proxy(new PeopleController(),{
+
+    get: function (target, prop, receiver) { 
+        console.log(prop);
+        return Reflect.get(target, prop, receiver);
+     }
+
+});
+
+
+// export const peopleController = new PeopleController();
+
+export const peopleController = proxy;
