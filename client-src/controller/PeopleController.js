@@ -2,12 +2,13 @@
 
 import { Fetcher } from "../scripts/Fetcher.js";
 import { PeopleView } from "../views/PeopleView.js";
+import { ProxyFactry } from "../scripts/ProxyFactory.js"
 
 const RESOURCE_URL = 'http://localhost:3000/peoples';
 const containerCards = document.querySelector('#show-peoples');
 const peopleView = new PeopleView(containerCards);
 
-class PeopleController{
+export class PeopleController{
     
     constructor(){
         this._qtd = document.querySelector('#filter-qtd-input');
@@ -16,12 +17,12 @@ class PeopleController{
     }
 
     fetchPeople(){
+        console.log('fetchPeople');
         return new Promise((resolve, reject)=>{
             try{
                 let uri = `${RESOURCE_URL}/${this._nat.value}/${this._qtd.value}`;
                 let data = Fetcher.conect(uri,'GET',null,'text/plain')[2];
                 peopleView.update(JSON.parse(data));
-                this._updateCounter();
                 return resolve();
             }
             catch(error) {
@@ -33,7 +34,6 @@ class PeopleController{
 
     removePeople(element){
         peopleView.removePeople(element);
-        this._updateCounter();
     }
 
     _updateCounter(){
@@ -42,16 +42,7 @@ class PeopleController{
 
 }
 
-let proxy = new Proxy(new PeopleController(),{
-
-    get: function (target, prop, receiver) { 
-        console.log(prop);
-        return Reflect.get(target, prop, receiver);
-     }
-
-});
-
-
-// export const peopleController = new PeopleController();
-
-export const peopleController = proxy;
+let controller =  new PeopleController();
+let triggersNames = ['removePeople', 'fetchPeople'];
+let traps = [()=>controller._updateCounter()];
+export let peopleController = ProxyFactry.create(controller,triggersNames,traps);
