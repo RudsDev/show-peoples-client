@@ -20,7 +20,7 @@ export class ProxyFactry{
             get(target, prop, receiver){
 
                 if(triggerPropsNames.includes(prop) && 
-                  (typeof(target[prop] == typeof(Function)))){
+                  (typeof(target[prop]) == typeof(Function)) ){
 
                     return function () {
 
