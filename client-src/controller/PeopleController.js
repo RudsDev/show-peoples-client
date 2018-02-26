@@ -3,6 +3,7 @@
 import { Fetcher } from "../scripts/Fetcher.js";
 import { PeopleView } from "../views/PeopleView.js";
 import { ProxyFactry } from "../scripts/ProxyFactory.js"
+import { ProxyFactoryXP } from "../scripts/ProxyFactoryXP.js"
 
 const RESOURCE_URL = 'http://localhost:3000/peoples';
 const containerCards = document.querySelector('#show-peoples');
@@ -17,7 +18,6 @@ export class PeopleController{
     }
 
     fetchPeople(){
-        console.log('fetchPeople');
         return new Promise((resolve, reject)=>{
             try{
                 let uri = `${RESOURCE_URL}/${this._nat.value}/${this._qtd.value}`;
@@ -40,9 +40,27 @@ export class PeopleController{
         this._counter.textContent = document.querySelectorAll('.poeple-card').length;
     }
 
+    trapTesteOne(){
+        console.log('Teste trap one');
+    }
+
+    trapTesteTwo(){
+        console.log('Teste trap two');
+    }
+
+    trapTesteTree(param){
+        console.log('Teste trap tree: ' + param);
+    }
+
 }
 
 let controller =  new PeopleController();
 let triggersNames = ['removePeople', 'fetchPeople'];
-let traps = [()=>controller._updateCounter()];
-export let peopleController = ProxyFactry.create(controller,triggersNames,traps);
+
+let trapsFetch = [()=>controller._updateCounter(), ()=>controller.trapTesteOne()];
+let trapsRemove = [()=>controller._updateCounter(), ()=>controller.trapTesteTwo(), ()=>controller.trapTesteTree('INTEL')];
+
+let fetchPeopleTrap = {triggerName: 'fetchPeople', traps: trapsFetch};
+let removePeopleTrap = {triggerName: 'removePeople', traps: trapsRemove};
+
+export let peopleController = ProxyFactoryXP.create(controller, fetchPeopleTrap, removePeopleTrap);
