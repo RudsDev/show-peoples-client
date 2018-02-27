@@ -13,7 +13,7 @@ export class ProxyFactoryXP{
      * @param {Object} object - Object will wrapped by Proxy.
      * @param {Object} trapsParams - Literal object containing traps config parameters.
      * @param {string} trapsParams.triggerName - Name of propertie wich trigger the trap.
-     * @param {Object} trapsParams.traps - Called functions by defined trigger. 
+     * @param {Function} trapsParams.traps - Called functions by defined trigger. 
     */
     static create(object, ...trapsParams){
 
