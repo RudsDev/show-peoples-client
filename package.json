@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel client-src -d client --source-maps"
+    "build": "babel client-src -d client --source-maps",
+    "watch": "babel client-src -d client --source-maps --watch"
   },
   "author": "",
   "license": "ISC",
