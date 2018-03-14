@@ -32,7 +32,7 @@ export class PeopleView{
                         <div><span class="data-label">Age:</span> ${age}</div>
                     </div>
                     <div class="options">
-                        <span>
+                        <span class="see-more">
                             <a href="#" class="btn btn-primary">See more</a>
                         </span>
                     </div>
