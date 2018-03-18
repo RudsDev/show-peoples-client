@@ -1,29 +1,29 @@
-import {Negociacao} from "../models/Negociacao";
-export class NegociacaoDao{
+"use strict";
+
+export class Dao{
 
     constructor(connection){
-
+        console.log(connection);
+        
         this._connection = connection;
-        this._store = 'negociacoes';
+        this._store = 'peoples';
 
     }
 
-    adiciona(negociacao){
+    adiciona(data){
 
         return new Promise((resolve, reject)=>{
 
            let request = this._connection
             .transaction([this._store],'readwrite')
             .objectStore(this._store)
-            .add(negociacao);
+            .add(data);
 
             request.onsuccess = (event)=>{
-                console.log('Negociação incluida com sucesso.');
                 resolve();
             };
 
             request.onerror = (event)=>{
-                console.log('Negociação não incluída.');
                 console.log(event.target.error);
             };
 
@@ -56,7 +56,6 @@ export class NegociacaoDao{
 
             cursor.onerror = (event)=>{
                 console.log(event.target.error.name);
-                reject('Não foi possivel listar as negociações.');
             };
         });
     }
@@ -73,12 +72,10 @@ export class NegociacaoDao{
 
 
             request.onsuccess = (event)=>{
-                resolve('Negociações removidas com sucesso');
             };
 
             request.onerror = (event)=>{
                 console.log(event.target.error);
-                reject('Não foi possivel apagar as negociações.');
             };
         });
 

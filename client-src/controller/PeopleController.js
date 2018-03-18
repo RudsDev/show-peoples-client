@@ -1,13 +1,13 @@
 "use strict";
 
-import { HttpService } from "../scripts/HttpService.js";
 import { PeopleView } from "../views/PeopleView.js";
+import { PeopleService } from "../service/PeopleService.js";
 import { ProxyFactoryXP } from "../scripts/ProxyFactoryXP.js"
 
-const httpService  = new HttpService();
 const RESOURCE_URL = 'http://localhost:3000/peoples';
 const containerCards = document.querySelector('#show-peoples');
 const peopleView = new PeopleView(containerCards);
+const peopleService = new PeopleService();
 
 export class PeopleController{
     
@@ -21,8 +21,7 @@ export class PeopleController{
         return new Promise((resolve, reject)=>{
             try{
                 let uri = `${RESOURCE_URL}/${this._nat.value}/${this._qtd.value}`;
-                let promise = httpService.get(uri);
-                return resolve(promise.then(data=>this._updatePeople(data)));
+                peopleService.fetchPeople(uri).then(data=>this._updatePeople(data));    
             }
             catch(error) {
                 console.log(error);

@@ -1,8 +1,8 @@
 
 
-const stores = ['negociacoes'];
-const version = 3;
-const dbName = 'aluraframe';
+const stores = ['peoples'];
+const version = 1;
+const dbName = 'PeoplesDB';
 
 let connection = null;
 let close = null;
