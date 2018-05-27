@@ -1,12 +1,12 @@
 "use strict";
 
+const STORE_NAME = 'peoples';
+
 export class Dao{
 
     constructor(connection){
-        console.log(connection);
-        
         this._connection = connection;
-        this._store = 'peoples';
+        this._store = STORE_NAME;
 
     }
 
@@ -72,6 +72,27 @@ export class Dao{
 
 
             request.onsuccess = (event)=>{
+            };
+
+            request.onerror = (event)=>{
+                console.log(event.target.error);
+            };
+        });
+
+    }
+
+    getOnePeople(id){
+
+        return new Promise((resolve, reject) => {
+            
+            let request = this._connection
+                .transaction([this._store],'readwrite')
+                .objectStore(this._store)
+                .get(id);
+
+
+            request.onsuccess = (event)=>{
+                console.log(request.result);
             };
 
             request.onerror = (event)=>{

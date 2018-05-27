@@ -1,4 +1,5 @@
 export function initCardEvents(peopleController) {
+    console.log('initCardEvents');
     closeCard(peopleController);
     showMore();    
 }
@@ -16,12 +17,11 @@ function closeCard(peopleController){
 
 
 function showMore() {
-    console.log('showMore');
-    let unclosables = document.querySelectorAll('span.see-more');
-    unclosables.forEach(item=>{
+    let elements = document.querySelectorAll('span.see-more');
+    elements.forEach(item=>{
         item.addEventListener('click', event=>{
-            let element = event.target;
-            console.log(element); 
+            let element = event.target.parentNode.parentNode.parentNode;
+            console.log(element.querySelector('.people_id').value); 
         });
     });
 }
