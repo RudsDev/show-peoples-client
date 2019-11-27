@@ -21,13 +21,20 @@ export class PeopleController{
         return new Promise((resolve, reject)=>{
             try{
                 let uri = `${RESOURCE_URL}/${this._nat.value}/${this._qtd.value}`;
-                peopleService.fetchPeople(uri).then(data=>this._updatePeople(data));    
+                return peopleService.fetchPeople(uri).then(data=>{
+                    this._updatePeople(data)
+                    return resolve();
+                });    
             }
             catch(error) {
                 console.log(error);
                 return reject(error);
             }
         });
+    }
+
+    fetchPeopleIDB(id){
+        peopleService.fetchPeopleIDB(id).then(data=>console.log(data));
     }
 
     _updatePeople(data){

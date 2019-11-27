@@ -1,6 +1,6 @@
 export function initCardEvents(peopleController) {
     closeCard(peopleController);
-    showMore();    
+    seeMore(peopleController);    
 }
 
 
@@ -15,13 +15,13 @@ function closeCard(peopleController){
 }
 
 
-function showMore() {
-    console.log('showMore');
-    let unclosables = document.querySelectorAll('span.see-more');
-    unclosables.forEach(item=>{
+function seeMore(peopleController) {
+    let elements = document.querySelectorAll('span.see-more');
+    elements.forEach(item=>{
         item.addEventListener('click', event=>{
-            let element = event.target;
-            console.log(element); 
+            let element = event.target.parentNode.parentNode.parentNode;
+            let id = element.querySelector('.people_id').value
+            peopleController.fetchPeopleIDB(id)
         });
     });
 }

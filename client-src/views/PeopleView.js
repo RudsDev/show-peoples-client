@@ -17,10 +17,10 @@ export class PeopleView{
             - new Date(Date.parse(model._dateOfBirthy)).getFullYear();
             html += `
                 <div class="poeple-card">
-                <h4 class="card-title name">${model._name._first}</h4>
-                <button type="button" class="close close-card" aria-label="Close">
-                    <span class="btn-close-card  unclosable" aria-hidden="true">&times;</span>
-                </button>
+                    <h4 class="card-title name">${model._name._first}</h4>
+                    <button type="button" class="close close-card" aria-label="Close">
+                        <span class="btn-close-card  unclosable" aria-hidden="true">&times;</span>
+                    </button>
                     <div class="picture">
                         <img src="${model._picture._medium}" 
                         class="thumbnail rounded-circle" alt="People Name">
@@ -36,6 +36,7 @@ export class PeopleView{
                             <a href="#" class="btn btn-primary">See more</a>
                         </span>
                     </div>
+                    <input type="hidden" class="people_id" value="${model._id}">
                 </div>
             `;
         })
