@@ -1,4 +1,6 @@
-class Router {
+"use strict";
+
+export class Router {
     constructor(routes, el) {
       this.routes = routes;
       this.el = el;
