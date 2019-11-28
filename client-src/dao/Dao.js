@@ -17,7 +17,7 @@ export class Dao {
             let request = this._connection
                 .transaction([this._store], 'readwrite')
                 .objectStore(this._store)
-                .add({ id: data._id, email: data._contact._email, data: data });
+                .add({ id: data._id, payload: data });
 
             request.onsuccess = (event) => {
                 resolve();
@@ -39,21 +39,6 @@ export class Dao {
                 .objectStore(this._store)
                 .openCursor();
 
-            let negociacoes = [];
-
-            cursor.onsuccess = (event) => {
-
-                let atual = event.target.result;
-
-                if (atual) {
-                    let dado = atual.value;
-                    negociacoes.push(new Negociacao(dado._data, dado._quantidade, dado._valor));
-                    atual.continue();
-                } else {
-                    resolve(negociacoes);
-                }
-            };
-
             cursor.onerror = (event) => {
                 console.log(event.target.error.name);
             };
@@ -69,7 +54,6 @@ export class Dao {
                 .transaction([this._store], 'readwrite')
                 .objectStore(this._store)
                 .clear();
-
 
             request.onsuccess = (event) => {
             };
@@ -90,7 +74,7 @@ export class Dao {
 
 
             request.onsuccess = (event) => {
-                console.log(request);
+                console.log(request.result);
             };
 
             request.onerror = (event) => {

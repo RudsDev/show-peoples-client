@@ -55,14 +55,12 @@ div#div-filters {
 }
 
 #main-container{
-  background-color: orangered;
   margin-top: 10px; 
   padding: 3px;
 }
 
 #show-peoples{
   display: inline-block;
-  background-color: aquamarine;
 }
 
 div.picture{
