@@ -1,7 +1,7 @@
 
 
 const stores = ['peoples'];
-const version = 3;
+const version = 4;
 const dbName = 'PeoplesDB';
 
 let connection = null;

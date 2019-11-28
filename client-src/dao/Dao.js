@@ -86,7 +86,7 @@ export class Dao{
             let request = this._connection
                 .transaction([this._store],'readonly')
                 .objectStore(this._store)
-                .get(id);
+                .get(parseInt(id));
 
 
             request.onsuccess = (event)=>{
