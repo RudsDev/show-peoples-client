@@ -17,7 +17,7 @@ hr {
   border-width: 0.5px;
   background: pink;
   height: 2px;
-  border-color: hotpink;
+  border-color:gray;
 }
 
 h3.show-error{
@@ -55,14 +55,14 @@ div#div-filters {
 }
 
 #main-container{
-  background-color: orangered;
+  /* background-color: orangered; */
   margin-top: 10px; 
   padding: 3px;
 }
 
 #show-peoples{
   display: inline-block;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
 }
 
 div.picture{
@@ -179,7 +179,7 @@ div#counter-peoples{
   padding: 5px 0px 5px 5px;
   border-radius: 3px;
   display: inline-block;
-  background: #ff69b48a;
+  background: #cecece44;
   font-size: medium;
 }
 
