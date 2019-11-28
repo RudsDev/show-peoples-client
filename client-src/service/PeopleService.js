@@ -1,39 +1,47 @@
 "use strict";
 
 import { HttpService } from "../scripts/HttpService.js";
-import {ConnectionFactory} from "../scripts/ConnectionFactory.js";
-import {Dao} from "../dao/Dao.js";
+import { ConnectionFactory } from "../scripts/ConnectionFactory.js";
+import { Dao } from "../dao/Dao.js";
 var dao = undefined;
-const httpService  = new HttpService();
+const httpService = new HttpService();
 
 ConnectionFactory.getConnection().then(conn => dao = new Dao(conn));
 
-export class PeopleService{
-    
+export class PeopleService {
+
     constructor() { }
-    
-    fetchPeople(uri){
-        return new Promise((resolve, reject)=>{
-            try{
+
+    fetchPeople(uri) {
+        return new Promise((resolve, reject) => {
+            try {
                 let promise = httpService.get(uri);
-                return resolve(promise.then(data=>{
+                return resolve(promise.then(data => {
                     this.add(data);
                     return data;
                 }));
             }
-            catch(error) {
+            catch (error) {
                 console.log(error);
                 return reject(error);
             }
         });
     }
-    
-    _conn(){
+
+    _conn() {
         return ConnectionFactory.getConnection();
     }
 
-    add(data = []){
-        data.map(item=>dao.adiciona(item));
+    add(data = []) {
+        data.map(item => dao.adiciona(item));
+    }
+
+    fetchPeopleIDB(id) {
+        return dao.getOnePeople(id)
+    }
+
+    add(data = []) {
+        data.map(item => dao.adiciona(item));
     }
 
 }

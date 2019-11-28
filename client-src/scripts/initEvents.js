@@ -1,14 +1,14 @@
 export function initCardEvents(peopleController) {
     console.log('initCardEvents');
     closeCard(peopleController);
-    showMore();    
+    seeMore(peopleController);
 }
 
 
-function closeCard(peopleController){
+function closeCard(peopleController) {
     let unclosables = document.querySelectorAll('span.unclosable');
-    unclosables.forEach(item=>{
-        item.addEventListener('click', event=>{
+    unclosables.forEach(item => {
+        item.addEventListener('click', event => {
             let element = event.target.parentNode.parentNode;
             peopleController.removePeople(element);
         });
@@ -16,12 +16,13 @@ function closeCard(peopleController){
 }
 
 
-function showMore() {
+function seeMore(peopleController) {
     let elements = document.querySelectorAll('span.see-more');
-    elements.forEach(item=>{
-        item.addEventListener('click', event=>{
+    elements.forEach(item => {
+        item.addEventListener('click', event => {
             let element = event.target.parentNode.parentNode.parentNode;
-            console.log(element.querySelector('.people_id').value); 
+            let id = element.querySelector('.people_id').value
+            peopleController.fetchPeopleIDB(id)
         });
     });
 }

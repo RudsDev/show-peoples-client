@@ -1,7 +1,7 @@
 
 
 const stores = ['peoples'];
-const version = 1;
+const version = 4;
 const dbName = 'PeoplesDB';
 
 let connection = null;
@@ -53,7 +53,8 @@ export class ConnectionFactory{
         stores.forEach((store)=>{
             if(conn.objectStoreNames.contains(store))
                 conn.deleteObjectStore(store);
-            conn.createObjectStore(store,{autoIncrement:true})
+            conn.createObjectStore(store,{autoIncrement:true, keyPath: "id"})
+            .createIndex(store, "email", { unique: false });
         });
     }
 }
