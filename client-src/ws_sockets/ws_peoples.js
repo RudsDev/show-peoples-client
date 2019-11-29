@@ -1,7 +1,7 @@
 const socket = new WebSocket("ws://localhost:3000/socket");
 
-import { MessageView } from "gen_view/MessageView.js";
-import { PeopleView } from "gen_view/PeopleView.js";
+import { MessageView } from "views/MessageView.js";
+import { PeopleView } from "views/PeopleView.js";
 import { PeopleSocketControl } from "ws_sockets/controllers/PeopleSocketControl.js";
 
 const controller =
