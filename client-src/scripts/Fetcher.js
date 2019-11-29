@@ -1,24 +1,24 @@
 "use strict";
 
-export class Fetcher{
+export class Fetcher {
 
-    static conect(uri, method, data, dataType) {
-        
-        let xhr = new XMLHttpRequest();
-        
+  static conect(uri, method, data, dataType) {
 
-        try {
+    let xhr = new XMLHttpRequest();
 
-            xhr.open(method, uri, false);
-            xhr.setRequestHeader('Content-Type', dataType);
-            xhr.send(data);
 
-        } catch (error) {
-            console.log(error);
-        }
-        finally{
-            return [xhr.status, xhr.responseURL, xhr.response];
-        }
+    try {
+
+      xhr.open(method, uri, false);
+      xhr.setRequestHeader('Content-Type', dataType);
+      xhr.send(data);
+
+    } catch (error) {
+      console.log(error);
     }
-    
+    finally {
+      return [xhr.status, xhr.responseURL, xhr.response];
+    }
+  }
+
 }

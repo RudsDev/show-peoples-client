@@ -10,38 +10,38 @@ ConnectionFactory.getConnection().then(conn => dao = new Dao(conn));
 
 export class PeopleService {
 
-    constructor() { }
+  constructor() { }
 
-    fetchPeople(uri) {
-        return new Promise((resolve, reject) => {
-            try {
-                let promise = httpService.get(uri);
-                return resolve(promise.then(data => {
-                    this.add(data);
-                    return data;
-                }));
-            }
-            catch (error) {
-                console.log(error);
-                return reject(error);
-            }
-        });
-    }
+  fetchPeople(uri) {
+    return new Promise((resolve, reject) => {
+      try {
+        let promise = httpService.get(uri);
+        return resolve(promise.then(data => {
+          this.add(data);
+          return data;
+        }));
+      }
+      catch (error) {
+        console.log(error);
+        return reject(error);
+      }
+    });
+  }
 
-    _conn() {
-        return ConnectionFactory.getConnection();
-    }
+  _conn() {
+    return ConnectionFactory.getConnection();
+  }
 
-    add(data = []) {
-        data.map(item => dao.adiciona(item));
-    }
+  add(data = []) {
+    data.map(item => dao.adiciona(item));
+  }
 
-    fetchPeopleIDB(id) {
-        return dao.getOnePeople(id)
-    }
+  fetchPeopleIDB(id) {
+    return dao.getOnePeople(id)
+  }
 
-    add(data = []) {
-        data.map(item => dao.adiciona(item));
-    }
+  add(data = []) {
+    data.map(item => dao.adiciona(item));
+  }
 
 }

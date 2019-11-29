@@ -6,9 +6,9 @@ import { initCardEvents } from "./scripts/initEvents.js";
 
 const btnGo = document.querySelector('#btn-go');
 
-btnGo.addEventListener('click', event=>{
-    peopleController.fetchPeople()
-    .then(()=>{
-        initCardEvents(peopleController)
+btnGo.addEventListener('click', event => {
+  peopleController.fetchPeople()
+    .then(() => {
+      initCardEvents(peopleController)
     });
 });

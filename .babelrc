@@ -1,14 +1,18 @@
 {
-    "plugins": [
-        "transform-es2015-modules-systemjs",
-        ["module-resolver", {
-            "root": ["./client"],
-            "alias": {
-              "view": "./views",
-              "controller": "./controller",
-              "socketController": "./ws_sockets/controllers"
-            }
-          }
-        ]
+  "plugins": [
+    "transform-es2015-modules-systemjs",
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./client"
+        ],
+        "alias": {
+          "view": "./views",
+          "controller": "./controller",
+          "socketController": "./ws_sockets/controllers"
+        }
+      }
     ]
+  ]
 }
